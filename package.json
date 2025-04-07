@@ -1,0 +1,45 @@
+{
+  "name": "dsa",
+  "version": "0.0.1",
+  "bin": {
+    "atlassian": "src/index.js"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "build": "tsc",
+    "watch": "tsc -w",
+    "cdk": "cdk",
+    "prepare": "husky install",
+    "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
+    "prettier": "prettier \"*.{js,json,yml,md}\" \"src/**/*\"",
+    "format": "npm run prettier -- --write",
+    "format:check": "npm run prettier -- --check",
+    "test": "jest --config jest.config.ts",
+    "test:watch": "jest --config jest.config.ts --watchAll",
+    "test:coverage": "jest --config jest.config.ts --coverage"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.8.0",
+    "@commitlint/config-conventional": "^19.8.0",
+    "@types/jest": "^29.5.14",
+    "@types/node": "22.13.10",
+    "@typescript-eslint/eslint-plugin": "^8.26.1",
+    "@typescript-eslint/parser": "^8.26.1",
+    "aws-cdk": "2.1004.0",
+    "eslint": "^9.22.0",
+    "eslint-config-prettier": "^10.1.1",
+    "eslint-plugin-prettier": "^5.2.3",
+    "husky": "^9.1.7",
+    "jest": "^29.7.0",
+    "lint-staged": "^15.5.0",
+    "prettier": "^3.5.3",
+    "ts-jest": "^29.2.6",
+    "ts-node": "^10.9.2",
+    "typescript": "~5.8.2"
+  },
+  "dependencies": {
+    "aws-cdk-lib": "^2.184.1",
+    "axios": "^1.8.4",
+    "constructs": "^10.4.2"
+  }
+}
