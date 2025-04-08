@@ -1,40 +1,22 @@
-import { APIRouter } from '.';
+import { MaximumRunningCommodityPrice } from '.';
 
-describe('APIRouter', () => {
-  it('should add a route when given a path', () => {
-    const mockRouter = new APIRouter();
+describe('Find maximum commodity price', () => {
+  it('should update maximum commodity price', () => {
+    const maxRunningCommodity = new MaximumRunningCommodityPrice();
 
-    expect(() => {
-      mockRouter.addRoute('foo', 'res');
-    }).toBeDefined();
+    expect(maxRunningCommodity.upsertCommodityPrice(2, 2)).toBeUndefined();
   });
 
-  it('should return the route if available', () => {
-    const mockRouter = new APIRouter();
+  it('should return the maximum commodity price', () => {
+    const maxRunningCommodity = new MaximumRunningCommodityPrice();
 
-    mockRouter.addRoute('foo', 'this is foo');
-    mockRouter.addRoute('bar', 'this is bar');
+    maxRunningCommodity.upsertCommodityPrice(2, 2);
+    maxRunningCommodity.upsertCommodityPrice(4, 27);
+    maxRunningCommodity.upsertCommodityPrice(9, 29);
+    maxRunningCommodity.upsertCommodityPrice(4, 27);
+    maxRunningCommodity.upsertCommodityPrice(91, 4);
+    maxRunningCommodity.upsertCommodityPrice(9, 56);
 
-    expect(mockRouter.callRoute('foo')).toBe('this is foo');
-  });
-
-  it.only('should return the wildcard route if available', () => {
-    const mockRouter = new APIRouter();
-
-    mockRouter.addRoute('foo1', 'this is foo');
-    mockRouter.addRoute('/bar/*/bazz', 'this is wildcard');
-
-    expect(mockRouter.callRoute('/bar/2/bazz')).toBe('this is wildcard');
-  });
-
-  it('should throw error if the route is not available', () => {
-    const mockRouter = new APIRouter();
-
-    mockRouter.addRoute('foo', 'this is foo');
-    mockRouter.addRoute('bar', 'this is bar');
-
-    expect(() => {
-      mockRouter.callRoute('fooone');
-    }).toThrow('No route found');
+    expect(maxRunningCommodity.getMaxCommodityPrice()).toBe(56);
   });
 });
