@@ -1,9 +1,7 @@
-# dsa
-DSA
+# Summary
+DSA and System Design
 
-# Project Title
-
-This is a repo with DSA
+This is a repo with DSA and System Design concepts
 
 ## Features
 
@@ -18,12 +16,11 @@ we need to update the `commodityPrice` at that particular `timestamp` if an entr
 
 Create an in-memory solution tailored to prioritize frequent reads and writes for the given problem statement.
 
-
+```
 interface RunningCommodityPrice {
     void upsertCommodityPrice(int timestamp, int commodityPrice);
     int getMaxCommodityPrice();
 }
-
 
 RunningCommodityPrice r = new RunningCommodityPrice();
 r.upsertCommodityPrice(4, 27);
@@ -33,7 +30,6 @@ r.getMaxCommodityPrice();       // output should be 27 which is at timestamp 4
 r.upsertCommodityPrice(4, 28);  // timestamp can come out of order, there can be duplicate set of commodity price for the same timestamp
 r.getMaxCommodityPrice():       // output should be 28 from timstamp 4
 
-//int getCommodityPrice(int timestamp, int checkpoint)
 
 interface RunningCommodityPrice {
     int upsertCommodityPrice(int timestamp, int commodityPrice);  // returns checkpoint id
@@ -56,19 +52,11 @@ r.getCommodityPrice(14, secondCheckpoint);   // returns 27
 // since price at timestamp 14 got updated to 27 on or before secondCheckpoint
 r.getCommodityPrice(16, sixthCheckpoint);    // returns 23 
 // since price at timestamp 16 got updated 23 either on or before sixthCheckpoint
+```
 
+- System Design
 
-
-
-
-
-## Deployment
-
-TODO
-
-## Useful commands
-
-- TODO
+    see documentation [here](docs/system-design.md) 
 
 ## 🚀 About Me
 
@@ -76,4 +64,4 @@ I'm a full stack developer primarily working on AWS platform services and using 
 
 ## 🛠 Skills
 
-AWS, CDK, Serverless Framework, React, Typescript,
+AWS, CDK, Serverless Framework, React, Typescript, Python
