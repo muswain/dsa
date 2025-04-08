@@ -5,7 +5,7 @@ This is a repo with DSA and System Design concepts
 
 ## Features
 
-- DSA
+### DSA
 
 Image you are given a stream of data points consists of `<timestamp, commodityPrice>` 
 you are supposed to return the `maxCommodityPrice` at any point in time (i.e. we basically asking for "all time high" 
@@ -54,9 +54,9 @@ r.getCommodityPrice(16, sixthCheckpoint);    // returns 23
 // since price at timestamp 16 got updated 23 either on or before sixthCheckpoint
 ```
 
-- System Design
+### System Design
 
-    see documentation [here](docs/system-design.md) 
+See documentation [here](docs/system-design.md) 
 
 ## 🚀 About Me
 
